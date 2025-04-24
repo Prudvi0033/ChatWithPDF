@@ -1,3 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+.my-background {
+    background-image: radial-gradient(ellipse at bottom left, #ea580c, #fb923c, #fed7aa);
+  }

@@ -8,10 +8,10 @@ const monte = Montserrat({ subsets: ["latin"] })
 
 export default function Header() {
     return (
-        <header className={`container mx-auto px-4 py-6 flex justify-between items-center ${monte.className}`}>
+        <header className={`container mx-auto px-[14.5rem] py-6 flex justify-around items-center ${monte.className}`}>
             <div className="flex items-center gap-2">
-                <FileText className="h-8 w-8 text-orange-500" />
-                <span className="text-2xl font-bold italic tracking-tight">AskMyPDF</span>
+                <FileText className="h-6 w-6 text-orange-500" />
+                <span className="text-xl font-bold italic tracking-tight">AskMyPDF</span>
             </div>
             <div className="flex items-center gap-4">
                 <SignedIn>
