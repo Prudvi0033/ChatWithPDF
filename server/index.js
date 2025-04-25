@@ -1,6 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import multer from 'multer';
+import { Queue } from 'bullmq';
+
+const queue = new Queue("file-upload-queue")
 
 const PORT = 8000;
 const app = express();
@@ -22,7 +25,12 @@ app.get("/",(req, res)=>{
     res.json("Hello Jiii")
 })
 
-app.post('/pdf', upload.single('pdf') ,(req, res, next) => {
+app.post('/pdf', upload.single('pdf') ,async (req, res, next) => {
+    await queue.add("uploaded-files", JSON.stringify({
+        filename : req.file.originalname,
+        destination : req.file.destination,
+        path : req.file.path
+    }))
     return res.json({msg : "File Uploaded"})
 })
 
